@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.oop1.web.screens.workshop">
+    <data>
+        <instance id="workShopDc"
+                  class="com.company.oop1.entity.WorkShop"
+                  view="workShop-view">
+            <loader>
+            </loader>
+            <collection id="employeeDc" property="employee"/>
+        </instance>
+        <collection id="serviceDc" class="com.company.oop1.entity.Service" view="service-view">
+            <loader id="serviceDl">
+                <query><![CDATA[select e from oop1_Service e]]></query>
+            </loader>
+        </collection>
+        <instance id="CustomerDc" class="com.company.oop1.entity.Customer" view="customer-view"/>
+        <collection id="CustomerDc" class="com.company.oop1.entity.Customer" view="customer-view">
+            <loader id="CustomerDc">
+                <query>
+                    <![CDATA[select e from oop1_Customer e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout spacing="true">
+        <tabSheet>
+            <tab id="tab1" caption="Main" margin="true" spacing="true">
+                <form id="form" dataContainer="workShopDc">
+                    <column width="250px">
+                        <textField id="nameField" property="name"/>
+                        <textField id="phoneNumberField" property="phoneNumber"/>
+                        <textField id="addressField" property="address"/>
+                    </column>
+                </form>
+                <buttonsPanel>
+                    <button id="addEmployee" caption="Add employee"/>
+                </buttonsPanel>
+                <table dataContainer="employeeDc" width="50%" height="auto">
+                    <columns>
+                        <column id="firstName"/>
+                        <column id="lastName"/>
+                    </columns>
+                    <rows/>
+                </table>
+                <hbox id="editActions" spacing="true">
+                    <button action="windowCommitAndClose"/>
+                    <button action="windowClose"/>
+                </hbox>
+            </tab>
+            <tab id="tab2" caption="Customers" margin="true" spacing="true">
+                <table dataContainer="CustomerDc" width="50%" height="auto">
+                    <columns>
+                        <column id="name"/>
+                        <column id="phone"/>
+                    </columns>
+                    <rows/>
+                </table>
+            </tab>
+        </tabSheet>
+    </layout>
+</window>

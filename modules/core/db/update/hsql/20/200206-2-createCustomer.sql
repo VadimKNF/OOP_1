@@ -1,0 +1,2 @@
+alter table OOP1_CUSTOMER add constraint FK_OOP1_CUSTOMER_ON_WORK_SHOP foreign key (WORK_SHOP_ID) references OOP1_WORK_SHOP(ID);
+create index IDX_OOP1_CUSTOMER_ON_WORK_SHOP on OOP1_CUSTOMER (WORK_SHOP_ID);

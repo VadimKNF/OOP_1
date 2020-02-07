@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.oop1.web.screens.employee">
+    <data>
+        <instance id="employeeDc"
+                  class="com.company.oop1.entity.Employee"
+                  view="employee-with-workShop">
+            <loader/>
+        </instance>
+        <collection id="workShopDc" class="com.company.oop1.entity.WorkShop" view="_local">
+            <loader id="workShopDl">
+                <query><![CDATA[select e from oop1_WorkShop e]]></query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="employeeDc">
+            <column width="250px">
+                <textField id="firstNameField" property="firstName"/>
+                <textField id="lastNameField" property="lastName"/>
+                <dateField id="birthDateField" property="birthDate"/>
+                <textField id="emailField" property="email"/>
+                <textField id="salaryField" property="salary"/>
+                <lookupField dataContainer="employeeDc" optionsContainer="workShopDc" property="workShop"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+    <view entity="oop1_Employee" name="employee-view" extends="_local">
+        <property name="workShop"/>
+    </view>
+    <view entity="oop1_Service" name="service-view" extends="_local">
+        <property name="workShop" view="_local"/>
+        <property name="employee" view="_local"/>
+    </view>
+    <view entity="oop1_WorkShop" name="workShop-view" extends="_local">
+        <property name="employee" view="_local"/>
+        <property name="customer" view="_minimal">
+            <property name="phoneNumber"/>
+        </property>
+    </view>
+    <view entity="oop1_Individual" name="individual-view" extends="_local">
+        <property name="workShop">
+            <property name="name"/>
+        </property>
+    </view>
+    <view entity="oop1_Company" name="company-view" extends="_local">
+        <property name="workShop" view="_minimal"/>
+    </view>
+    <view entity="oop1_Customer" name="customer-view" extends="_local"/>
+    <view entity="oop1_Employee" name="employee-with-workShop" extends="_local">
+        <property name="workShop" view="_minimal"/>
+    </view>
+</views>

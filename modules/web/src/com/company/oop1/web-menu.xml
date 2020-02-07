@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-oop1" insertBefore="administration">
+        <item screen="oop1_City.browse"/>
+        <item screen="oop1_Company.browse"/>
+        <item screen="oop1_Individual.browse"/>
+        <item screen="oop1_WorkShop.browse"/>
+        <item screen="oop1_Employee.browse"/>
+    </menu>
+</menu-config>
